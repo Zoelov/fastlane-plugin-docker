@@ -2,7 +2,7 @@ module Fastlane
   module Actions
     class DockerClient
       def build(repository, path, dockerfile, changelog, tag: "latest")
-        result = Actions.sh "docker build  ----build-arg changelog=#{changelog.shellescape} -f #{dockerfile.shellescape} --pull -t #{repository.shellescape}:#{tag.shellescape} #{path.shellescape}"
+        result = Actions.sh "docker build --build-arg changelog=#{changelog.shellescape} -f #{dockerfile.shellescape} --pull -t #{repository.shellescape}:#{tag.shellescape} #{path.shellescape}"
 
         # Image ID is the last word of the last line
         return result.lines.last.split(" ").last

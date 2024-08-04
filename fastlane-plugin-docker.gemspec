@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.email         = 'manu@supermil.ch'
 
   spec.summary       = 'fastlane Actions to support building images, logging into Docker Hub, and pushing those images to the Hub'
-  spec.homepage      = "https://github.com/milch/fastlane-plugin-docker"
+  spec.homepage      = "https://github.com/Zoelov/fastlane-plugin-docker.git"
   spec.license       = "MIT"
 
   spec.files         = Dir["lib/**/*"] + %w(README.md LICENSE)

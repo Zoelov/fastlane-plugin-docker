@@ -38,7 +38,8 @@ module Fastlane
                                        env_name: "DOCKER_FILE_NAME"),
           FastlaneCore::ConfigItem.new(key: :build_args,
                                        description: "build args to env",
-                                       default_value: "",
+                                       default_value: {},
+                                       type: Hash,
                                        env_name: "BUILD_ARGS"),
 
         ]

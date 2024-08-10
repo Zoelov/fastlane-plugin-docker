@@ -10,7 +10,7 @@ module Fastlane
       def self.run(params)
         UI.message "Building docker image..."
 
-        Actions.lane_context[SharedValues::DOCKER_BUILT_IMAGE] = DockerClient.new.build(params[:repository], params[:path],params[:dockerfile], params[:changelog],tag: params[:tag])
+        Actions.lane_context[SharedValues::DOCKER_BUILT_IMAGE] = DockerClient.new.build(params[:repository], params[:path],params[:dockerfile], params[:build_args],tag: params[:tag])
         Actions.lane_context[SharedValues::DOCKER_BUILT_REPO] = params[:repository]
         Actions.lane_context[SharedValues::DOCKER_BUILT_TAG] =  params[:tag]
       end
@@ -36,10 +36,10 @@ module Fastlane
                                        description: "dockerfile name",
                                        default_value: "Dockerfile",
                                        env_name: "DOCKER_FILE_NAME"),
-          FastlaneCore::ConfigItem.new(key: :changelog,
-                                       description: "changelog to env",
+          FastlaneCore::ConfigItem.new(key: :build_args,
+                                       description: "build args to env",
                                        default_value: "",
-                                       env_name: "CHANGE_LOG"),
+                                       env_name: "BUILD_ARGS"),
 
         ]
       end
